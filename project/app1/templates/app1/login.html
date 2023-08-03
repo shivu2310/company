@@ -1,0 +1,74 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block title %} Login    {% endblock %} 
+
+
+{% block body %}
+
+<div class="container my-5 py-5 px-3">
+<!-- ------------------------------------------------------------------------------- -->
+         {% if messages %} 
+    {% for i in messages %}
+    <div class="alert alert-success alert-dismissible fade show rounded-pill text-center mb-5" role="alert">
+        <strong>Success!</strong> {{ i }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+    {% endfor %}
+    {% endif %}
+<!-- -------------------------------------------------------------------------------- -->
+    
+{% if error %} 
+    
+    <div class="alert alert-danger alert-dismissible fade show rounded-pill text-center mb-5" role="alert">
+        <strong>Oops!</strong> {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+    
+    {% endif %}
+
+
+<!-- --------------------------------------------------------------------------------- -->
+        
+<form action="/login/" method="post">
+          {% csrf_token %}
+
+  <div class="mb-5">
+    <label for="exampleInputEmail1" class="form-label">Company Name or Student's Username</label>
+    <input  type="text" class="form-control rounded-pill border border-success " name="companyname" value="{{ value_field.username }}"  aria-describedby="emailHelp" placeholder="Which has filled in Signin Form">
+    
+  </div>
+  <div class="mb-5">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control  is-invalid rounded-pill border border-success" value="{{ value_field.passwrd }}" name="pass1" id="exampleInputPassword1" placeholder="Enter Your Password" >
+  </div>
+  <div class="mb-5 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Remember Password</label>
+  </div>
+
+  <div class="container">
+
+
+  <button type="submit" class="btn btn-primary  btn-lg ">Submit</button>
+
+</div>
+
+<div class="text-end">
+  <a class="btn btn-success rounded-pill btn-lg mx-3" href="/signcos" role="button">Sign in For <strong>Company</strong></a>
+
+
+  <a class="btn btn-secondary rounded-pill btn-lg mx-3" href="/stusign" role="button">Sign in For <strong>Student</strong></a>
+</div>
+
+
+</form>
+
+
+
+
+</div>
+
+
+{% endblock %} 

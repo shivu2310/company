@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} {% endblock %}</title>
+    <style type="text/css">
+
+#tree1
+      {animation: tree1 1s linear infinite;
+    transform-origin: bottom ;
+  transform-box: fill-box;} 
+    @keyframes tree1
+     {0%,100%
+       {transform:rotateZ(-1deg);}
+      50% 
+      {transform:rotateZ(5deg);}
+  
+    }
+
+#tree2
+      {animation: tree2 1s linear infinite;
+    transform-origin: bottom ;
+  transform-box: fill-box;} 
+    @keyframes tree2
+     {0%,100%
+       {transform:rotateZ(-1deg);}
+      50% 
+      {transform:rotateZ(5deg);}
+  
+    }
+
+
+#sun
+      {animation: sun 2s linear infinite;
+    transform-origin: top ;
+  transform-box: fill-box;} 
+    @keyframes sun{from
+       {transform:translateY(100px);}
+      to
+      {transform:translateY(-5px);}
+  
+    }
+#dot1
+      {animation: dot1 1s linear infinite;
+    transform-origin: top ;
+  transform-box: fill-box;} 
+    @keyframes dot1{from
+       {transform:translateY(0px);}
+       to
+      {transform:translateY(10px);}
+  
+    }
+#dot2
+      {animation: dot2 1s linear infinite;
+    transform-origin: center ;
+  transform-box: fill-box;} 
+    @keyframes dot2{from
+       {transform:translateY(0px);}
+       to
+      {transform:translateY(10px);}
+  
+    }
+#dot3
+      {animation: dot3 1s linear infinite;
+    transform-origin: center ;
+  transform-box: fill-box;} 
+    @keyframes dot3{from
+       {transform:translateY(0px);}
+       to
+      {transform:translateY(10px);}
+  
+    }
+#lineonpage
+      {animation: lineonpage 1s ease-in infinite;
+    transform-origin: top ;
+  transform-box: fill-box;} 
+    @keyframes lineonpage{0%,100%
+       {transform: translateX(0px);}
+      50% 
+      {transform: translateX(50px);}
+  
+    }
+
+
+
+#thumbsup
+      {animation: thumbsup 1s linear infinite;
+    transform-origin: bottom ;
+  transform-box: fill-box;} 
+    @keyframes thumbsup{from
+       {transform:translateY(0px);}
+       to
+      {transform:translateY(19px);}
+  
+    }
+
+#handi
+      {animation: handi 1s linear infinite;
+    transform-origin: bottom ;
+  transform-box: fill-box;} 
+    @keyframes handi{0%,100%
+       {transform:translateY(-2px);}
+       50%
+      {transform:translateY(4px);}
+  
+    }
+
+    
+    #arm
+    {animation: arm 1s linear infinite;
+      transform-origin: bottom ;
+      transform-box: fill-box;} 
+      @keyframes arm{0%,100%
+        {transform:translateX(0px);}
+        50%
+        {transform:translateX(9px);}
+      }
+        
+      #face
+            {animation: face 1s linear infinite;
+          transform-origin: bottom ;
+        transform-box: fill-box;} 
+          @keyframes face{0%,100%
+             {transform:rotateZ(0deg);}
+             50%
+            {transform:rotateZ(10deg);}
+        
+          }
+#hair
+      {animation: hair 1s linear infinite;
+    transform-origin: center ;
+  transform-box: fill-box;} 
+    @keyframes hair{0%,100%
+       {transform:rotateZ(0deg);}
+       50%
+      {transform:rotateZ(10deg);}
+  
+    }
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------------ */
+
+     #giant-leg
+      {animation: leg 2s linear infinite;
+    transform-origin: top ;
+  transform-box: fill-box;} 
+    @keyframes leg
+     {0%,100%
+       {transform:rotateZ(3deg);}
+       50% 
+      {transform:rotateZ(-10deg);}}
+    
+    #hand-face{
+      animation: hand 2s linear infinite;
+      /* transform-origin : bottom ; */
+      transform-box: fill-box;
+    }
+    @keyframes hand {
+      0%,100%{transform:translateY(30px)}
+      50%{
+        transform: translateY(0px);
+      }
+
+
+    }
+    
+    
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <!-- header -->
+    <div class="container-fluid px-0 pb-5 mb-5 fixed-top">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start bg-secondary">
+      
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+          <li><a href="/service" class="nav-link px-2 text-white">Services</a></li>
+          <li><a href="/myprofile" class="nav-link px-2 text-white">Profile</a></li>
+          <li><a href="/contact" class="nav-link px-2 text-white">Contact Us</a></li>
+          <li><a href="/about" class="nav-link px-2 text-white">About</a></li>
+          {% block poster %}
+          {% endblock %}
+        </ul>
+        
+        
+        
+        <div class="text-end">    
+          {% block log %}  
+          <a class="btn btn-light me-2 rounded-pill" href="/login" role="button">Login</a>
+          {% endblock %}
+          <a class="btn btn-danger rounded-pill" href="/signcos" role="button"><strong>Sign-In</strong></a>
+        </div>
+      </div>
+    </div>
+
+
+  
+
+
+
+    
+    
+    {% block body %}  
+    
+    
+    
+    
+    {% endblock %}
+
+
+    
+    
+    {% block footer %}
+    <hr>
+    <!-- footer -->
+    <strong><em>
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="/contact" class="nav-link px-2 text-body-secondary">Contact Us</a></li>
+          <li class="nav-item"><a href="/myprofile" class="nav-link px-2 text-body-secondary">Profile</a></li>
+          <li class="nav-item"><a href="/service" class="nav-link px-2 text-body-secondary">Services</a></li>
+          <li class="nav-item"><a href="/about" class="nav-link px-2 text-body-secondary">About</a></li>
+        </ul>
+        <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+      </footer>
+    </div>
+  </em></strong>
+      
+      
+      
+      
+      
+      {% endblock %}
+      
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+      <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+     </script>
+
+
+    </body>
+    </html>

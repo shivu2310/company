@@ -1,0 +1,314 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block title %} Job Post {% endblock %}
+
+
+
+{% block log %}
+<a class="btn btn-light me-2 rounded-pill" href="/logout" role="button">Logout</a>
+{% endblock %}
+
+
+
+<!-- ================================================================================ -->
+
+{% block body %}
+
+<div class="my-5 mx-4">
+<!-- ------------------------------------------------------------------------------ -->
+
+<!-- for show message of successing post -->
+
+<div class="container">
+   
+  {% if error %}
+
+<div class="container py-3 my-3">
+    
+    <div class="alert alert-danger  fade show text-center alert-dismissible rounded-pill" id="liveAlertPlaceholder" role="alert">
+        <strong>Oops!</strong> {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    
+</div>
+            {% endif %}
+    
+    
+    
+</div>
+<!-- ------------------------------------------------------------------------------ -->
+
+<div class="row ">
+
+<!-- ------------------------------------------------------------------------------ -->
+<!-- sidebar -->
+
+<div class="container my-5 col-md-3">
+    
+    
+<!-- <p>
+    <div class="d-grid gap-2">
+    <button class="btn btn-primary rounded-pill " type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+      <strong>My Profile</strong>
+    </button>
+  </div>
+  </p>
+  <div style="min-height: 120px;">
+    <div class="collapse collapse-horizontal" id="collapseWidthExample"> -->
+      <div class="card card-body " style="width: 300px;">
+  
+         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark " style="width: 300px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+<!------------------------------------------------------------------------------------>
+<!-- <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> -->
+
+<svg  width="60" height="100" viewBox="0 0 532 532" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2" height="2" fill="#F5F5F5"/>
+  <g id="undraw_pic_profile_re_7g2h (1) 1" clip-path="url(#clip0_0_1)">
+  <g id="facer">
+  <g id="Group">
+  <g id="Group_2">
+  <path id="Vector" d="M270.759 347.278C318.448 347.278 357.108 308.619 357.108 260.929C357.108 213.24 318.448 174.58 270.759 174.58C223.07 174.58 184.41 213.24 184.41 260.929C184.41 308.619 223.07 347.278 270.759 347.278Z" fill="#FFCDB0"/>
+  <path id="Vector_2" d="M199.288 366.614L217.288 320.614L310.288 306.614L320.28 408.44L226.28 410.44L199.288 366.614Z" fill="#FFCDB0"/>
+  </g>
+  <path id="Vector_3" d="M357.944 276.861C356.824 281.351 354.558 292.041 351.021 292.094C348.13 292.136 345.364 245.759 348.251 238.088C351.568 229.275 342.852 218.127 336.287 212.405C324.483 202.115 298.28 224.209 271.636 214.201C270.93 213.936 271.07 213.966 262.657 210.609C236.767 200.279 235.406 199.981 233.923 199.834C221.372 198.592 206.056 208.862 199.801 221.384C193.3 234.401 198.732 245.565 192.618 277.056C191.905 280.727 190.786 285.958 189.026 286.035C185.808 286.176 182.666 268.987 181.843 264.485C178.395 245.623 175.07 227.438 181.843 207.017C182.581 204.79 187.134 196.523 196.209 180.079C209.284 156.391 215.86 144.502 217.76 142.366C231.388 127.04 256.196 113.059 277.023 119.02C287.55 122.033 285.663 126.877 298.574 131.591C321.582 139.991 341.579 129.718 345.266 136.978C347.22 140.824 341.754 143.995 341.675 151.345C341.539 163.957 357.489 167.601 366.817 180.079C371.831 186.787 380.414 186.859 357.944 276.861Z" fill="#C56C72"/>
+  </g>
+  </g>
+  <path id="Vector_4" d="M464.92 442.61C461.44 446.521 457.83 450.351 454.09 454.091C403.85 504.33 337.05 532 266 532C204.59 532 146.36 511.33 99.25 473.28C99.22 473.261 99.2 473.24 99.1702 473.21C92.9202 468.171 86.8701 462.811 81.03 457.15C81.1399 456.271 81.26 455.4 81.3899 454.54C82.21 448.74 83.1201 443.21 84.1399 438.12C92.49 396.4 202.36 352.601 205.22 351.46C205.26 351.45 205.28 351.44 205.28 351.44C205.28 351.44 219.42 403.561 280.01 402.891C321.28 402.44 313.28 351.44 313.28 351.44C313.28 351.44 313.78 351.54 314.72 351.74C326.64 354.271 409.4 372.45 442.05 397.261C452 404.82 459.14 420.921 464.27 440.12C464.49 440.94 464.7 441.78 464.92 442.61Z" fill="#CDFF63"/>
+  <path id="Vector_5" d="M454.09 77.9102C403.85 27.6709 337.05 0 266 0C194.95 0 128.15 27.6709 77.9099 77.9102C27.6702 128.15 0 194.95 0 266C0 330.851 23.05 392.16 65.29 440.57C69.3201 445.2 73.53 449.71 77.9099 454.091C78.9399 455.12 79.98 456.15 81.03 457.15C86.8701 462.811 92.9202 468.171 99.1702 473.21C99.2 473.24 99.22 473.261 99.25 473.28C146.36 511.33 204.59 532 266 532C337.05 532 403.85 504.33 454.09 454.091C457.83 450.351 461.44 446.521 464.92 442.61C508.29 393.891 532 331.771 532 266C532 194.95 504.33 128.15 454.09 77.9102ZM464.27 440.12C456.4 449.07 447.94 457.49 438.94 465.301C421.87 480.15 402.87 492.83 382.38 502.931C375.19 506.48 367.82 509.71 360.28 512.601C330.99 523.841 299.2 530 266 530C233.96 530 203.24 524.261 174.81 513.761C163.14 509.46 151.86 504.351 141.03 498.5C139.44 497.641 137.86 496.771 136.29 495.881C128.03 491.2 120.04 486.091 112.37 480.57C101.38 472.69 91.02 463.98 81.3899 454.54C75.99 449.25 70.8301 443.74 65.9001 438.011C26.0901 391.771 2 331.65 2 266C2 120.431 120.43 2 266 2C411.57 2 530 120.431 530 266C530 332.66 505.17 393.62 464.27 440.12Z" fill="#3F3D56"/>
+  </g>
+  <defs>
+  <clipPath id="clip0_0_1">
+  <rect width="532" height="532" fill="white"/>
+  </clipPath>
+  </defs>
+  </svg>
+  
+<!------------------------------------------------------------------------------------>
+          <span class="fs-4">{{ username }}</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="/myprofile" class="nav-link active" aria-current="page">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+               Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="/" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+              Home
+            </a>
+          </li>
+              
+          <li>
+            <a href="/postpage" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+              Recruitment Post
+            </a>
+          </li>
+  
+          <li>
+            <a href="/service" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+              Services
+            </a>
+          </li>
+  
+          <li>
+            <a href="/about" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+              about
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+              Contact Us
+            </a>
+          </li>
+        </ul>
+        <hr>
+        
+      </div> 
+      </div> 
+    
+</div>
+    <!-- ------------------------------------------------------------------------------ -->
+
+<!-- field of post -->
+
+<div class="container col-md-9 ">
+    
+    <form action="/postpage/" method="post" class="row g-3 needs-validation" novalidate>
+
+      {% csrf_token %}
+
+    <div data-role="page-header">
+        <div data-role="control" data-type="form-header" data-hash="00000002" data-type-id="27" data-colspan="20"
+            id="form-heading-00000002-acc" aria-labelledby="form-heading-00000002-acc" data-i18n-html="Headline"
+            class="my-5">
+            <h1 style="text-align:center"><span style="color:#333333">Job Post</span></h1>
+            <br>
+            <div class="container text-center">
+                <h5><span style="color:#333333"> Fill All Field Carefully </span></h5>
+                <br>
+                <br>
+                <hr>
+            </div>
+        </div>
+        </div>
+
+
+<!-- ------------------------------------------------------------------------------ -->
+
+    
+    <!-- first row 2 column code -->
+<div class=" row my-3">
+  <div class="col-md-6">
+    <label for="inputPassword5" class="form-label">Company Name</label>
+    <input type="text" id="inputPassword5" class="form-control rounded-pill border border-success" placeholder="Enter Company Name" name="name" value="{{ value.name }}" aria-describedby="passwordHelpBlock">
+  </div>
+  
+  
+  <div class="col-md-6">
+    <label for="inputPassword5" class="form-label">Contact</label>
+    <input type="text" name="country code" class="rounded-pill border border-success " value="+91" size="2"/>
+    <input type="text" id="inputPassword5" class="form-control rounded-pill border border-success" size="10" placeholder="Give Live Number. If you have more than one so Type with Comma (,)" name="contact" value="{{ value.contact }}" aria-describedby="passwordHelpBlock">
+    </div>
+
+
+
+
+  </div>
+<div class="row my-3">
+    
+    <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">Vacant Seat</label>
+        <input type="number" class="form-control rounded-pill border border-success" placeholder="Enter Number of Vacancy" id="validationCustom01" name="vacancy" value="{{ value.vacant }}" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Skills Demand</label>
+      <input type="text" class="form-control rounded-pill border border-success" name="skill" placeholder="like python , django , etc" id="validationCustom02" value="{{ value.skill }}" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    
+</div>
+
+<!-- ------------------------------------------------------------------------------ -->
+
+<div class="row my-3">
+    
+    <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">Salary</label>
+      <input type="text" class="form-control rounded-pill border border-success" id="validationCustom03" value="{{ value.salary }}" name="salary" placeholder=" Type Like 10,000 - 15,000" required>
+      <div class="invalid-feedback ">
+        Please provide a valid Salary.
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <label for="validationCustom04" class="form-label">Destination</label>
+      <select class="form-select rounded-pill border border-success" id="validationCustom04"  name="destination" required>
+        <option >Work from Office</option>
+        <option>Work from Home</option>
+      </select>
+      <div class="invalid-feedback">
+        Please select a valid Status.
+      </div>
+
+
+    </div>
+    
+    
+</div>
+
+<!-- ------------------------------------------------------------------------------ -->
+
+<div class="row my-3">
+    
+    <div class="col-md-6">
+
+        <label for="validationCustom04" class="form-label">Status</label>
+        <select class="form-select rounded-pill border border-success" id="validationCustom04" name="fresher" required>
+          <option>Fresher</option>
+          <option>Experience</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid Status.
+        </div>
+
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <label for="validationCustom04" class="form-label">State</label>
+      <select class="form-select rounded-pill border border-success" id="validationCustom04" name="fulltime" required>
+        <option>Full Time</option>
+        <option>Part Time</option>
+      </select>
+      <div class="invalid-feedback">
+        Please select a valid state.
+      </div>
+
+
+    </div>
+    
+    
+</div>
+
+<!-- ------------------------------------------------------------------------------ -->
+
+<!-- textarea -->
+
+
+    
+    <div class="my-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Job Description</label>
+        <textarea class="form-control border border-success rounded-pill py-5" id="exampleFormControlTextarea1" placeholder="Type About work" name="job_description" rows="5"> {{ value.jobdes }}</textarea>
+   </div>
+     
+    
+
+<!-- ------------------------------------------------------------------------------ -->
+
+<div class="col-12 my-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+       <strong>  Have you Checked the Field Before Submitting </strong>
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+
+
+<!-- ------------------------------------------------------------------------------ -->
+<div class="col-12 my-3">
+    <button class="btn btn-primary" type="submit">POST</button>
+  </div>
+<!-- ------------------------------------------------------------------------------ -->
+</div>
+</form>
+<!-- ------------------------------------------------------------------------------     -->
+
+</div>
+<!-- ------------------------------------------------------------------------------ -->
+    </div>   
+
+
+    {% endblock %}
