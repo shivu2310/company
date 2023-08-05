@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['.vercel.app']
 # Application definition
 
 INSTALLED_APPS = [
-    'app1.apps.App1Config',
+    'project.app1.apps.App1Config',
     'phonenumber_field',
     'jazzmin',
     'django.contrib.admin',
