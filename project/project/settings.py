@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['.vercel.app']
 # Application definition
 
 INSTALLED_APPS = [
-    'project.app1.apps.App1Config',
+    'app1.apps.App1Config',
     'phonenumber_field',
     'jazzmin',
     'django.contrib.admin',
@@ -127,8 +127,7 @@ JAZZMIN_SETTINGS = {
     "site_title" : "JEE Comapany Dashboard",
     "site_header" : "JEE Company",
     "site_brand" : "JEE Cos",
-    "site_logo" : "E:/newone/project/lcooo23uuuuuuuuu.png",
-    "site_icon" : "E:/newone/project/lcooo23uuuuuuuuu.png",
+
     "welcome_sign" : "WelCome To JeeCos",
     "copyright" : "JEE Cos LTD",
     
