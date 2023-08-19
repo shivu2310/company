@@ -49,7 +49,7 @@ def contact(request):
             return render (request, 'app1/contact.html',error)
     return render (request, 'app1/contact.html')
 
-def loginpage(request):
+def logincompany(request):
     if request.method=='POST':
         username = request.POST.get('companyname')
         # print(username)
@@ -95,15 +95,15 @@ def loginpage(request):
             pass_data1 = { 
                      'error':error_count , 'value_field' :come_value 
                 }
-            return render (request, 'app1/login.html' , pass_data1)
+            return render (request, 'app1/logincompany.html' , pass_data1)
 
                         
-    return render (request, 'app1/login.html')
+    return render (request, 'app1/logincompany.html')
 
 
 
 
-@ login_required(login_url='login')
+@login_required(login_url='logincom')
 def profile(request):
     model = Recruitment.objects.all()
     data = {'data' : model}
@@ -112,7 +112,7 @@ def profile(request):
     return render (request, 'app1/profile.html' , logger)
 
 
-@ login_required(login_url='login')
+@login_required(login_url='logincom')
 def postPage(request):
     
     current_user = request.user
@@ -179,7 +179,7 @@ def postPage(request):
 
 def logoutPage(request):
     logout(request)
-    return redirect ('/login')
+    return redirect ('/loginstu')
 
 def signcos(request):
     if request.method=='POST':
@@ -271,7 +271,7 @@ def signcos(request):
                 my_user.last_name = industry
                 my_user.save()
                 messages.success(request, 'Company has been Registered ')
-                return redirect ('/login')
+                return redirect ('/logincom')
             else:
                 pass_data = { 
                      'error':error_msg , 'value_field' :value_come 
@@ -282,6 +282,11 @@ def signcos(request):
 
 
 
+    
+    
+    
+    
+    
 def stusign(request):
     if request.method == 'POST':
         pass1 = request.POST.get('pass1') 
@@ -388,11 +393,10 @@ def stusign(request):
                 student.save()
                 
                 my_user = User.objects.create_user(username,email,pass1)
-                my_user.first_name = fullname
                 my_user.last_name = coverpage
                 my_user.save()
                 messages.success(request,"Student has been Registered in our Database")  
-                return redirect ('/login')
+                return redirect ('/loginstu')
             else:
                 pass_info = {
                     'error': error_message , 'valuer':value_come
@@ -402,4 +406,62 @@ def stusign(request):
     return render (request, 'app1/stusign.html')
 
 
+def loginstudent(request):
+    if request.method=='POST':
+        username = request.POST.get('companyname')
+        # print(username)
+        password1 = request.POST.get('pass1')
+        # print(password1)
+        
+# --------------------------------------------------------------------------------------
+# Validation
 
+        error_count = None
+
+        if (not username):
+            error_count = "Please Enter Company Name or Student's Username Field"
+            
+        elif (not password1):
+            error_count = "Please Enter Password Field"
+#--------------------------------------------------------------------------------------
+ #After keep empty field do login those field which filled already come with filled field
+           
+        come_value = { 'username' : username , 'passwrd':password1 }
+
+
+#--------------------------------------------------------------------------------------
+        if (not error_count):
+            user = authenticate(request,username=username,password=password1)
+        
+        
+            if user is not None:
+                login(request, user)
+                userman=user.username
+                cosuser = {'cosuser': userman}
+                model = Recruitment.objects.all()
+                data = {'data' : model}
+                logger = {'cosuser': cosuser , 'data':data}
+                return render(request, "app1/stuprofile.html" ,logger)
+            
+    
+            else:
+                messages.info(request, "We have not found your Account in our Database.")
+                # return HttpResponse ("You did not Signin")
+                return redirect('home')
+        else:
+            pass_data1 = { 
+                     'error':error_count , 'value_field' :come_value 
+                }
+            return render (request, 'app1/login.html' , pass_data1)
+
+                        
+    return render (request, 'app1/login.html')
+
+
+@login_required(login_url='loginstu')
+def stuprofile(request):
+    model = Recruitment.objects.all()
+    data = {'data' : model}
+    logger = {'data':data}
+            
+    return render (request, 'app1/stuprofile.html' , logger)

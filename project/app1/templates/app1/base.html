@@ -189,18 +189,23 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
           <li><a href="/service" class="nav-link px-2 text-white">Services</a></li>
-          <li><a href="/myprofile" class="nav-link px-2 text-white">Profile</a></li>
+          {% block stuprofile %}
+          <li><a href="/stuprofile" class="nav-link px-2 text-white">Student Profile</a></li>
+          {% endblock %}
+          
+          {% block poster %}
+          <li><a href="/myprofile" class="nav-link px-2 text-white">Company Profile</a></li>
+          {% endblock %}
           <li><a href="/contact" class="nav-link px-2 text-white">Contact Us</a></li>
           <li><a href="/about" class="nav-link px-2 text-white">About</a></li>
-          {% block poster %}
-          {% endblock %}
         </ul>
         
         
         
         <div class="text-end">    
           {% block log %}  
-          <a class="btn btn-light me-2 rounded-pill" href="/login" role="button">Login</a>
+          <a class="btn btn-light me-2 rounded-pill" href="/loginstu" role="button">Student Login</a>
+          <a class="btn btn-light me-2 rounded-pill" href="/logincom" role="button">Company Login</a>
           {% endblock %}
           <a class="btn btn-danger rounded-pill" href="/signcos" role="button"><strong>Sign-In</strong></a>
         </div>

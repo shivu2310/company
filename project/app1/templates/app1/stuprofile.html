@@ -3,13 +3,7 @@
 {% block title %} My Profile {% endblock %}
  
 
-{% block stuprofile %}  {% endblock %}
-
-{% block poster %}
-<li><a href="/postpage" class="nav-link px-2 text-white">Recruiting Post</a></li>
-{% endblock %}
-
-
+{% block poster %} {% endblock %}
 
 {% block log %}
 <a class="btn btn-light me-2 rounded-pill" href="/logout" role="button">Logout</a>
@@ -119,12 +113,6 @@
           </a>
         </li>
             
-        <li>
-          <a href="/postpage" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-            Recruitment Post
-          </a>
-        </li>
        
 
         <li>
@@ -132,7 +120,6 @@
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
             Services
           </a>
-          
         </li>
         <li>
           <a href="/about" class="nav-link text-white">
